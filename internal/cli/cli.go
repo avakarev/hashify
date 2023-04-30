@@ -19,9 +19,30 @@ var (
 	SHA1Flag   bool // SHA1Flag represents state of sha1 flag
 	SHA256Flag bool // SHA256Flag represents state of sha256 flag
 	SHA512Flag bool // SHA512Flag represents state of sha512 flag
-
-	Files []string // Files represents list of files passed as arguments
 )
+
+// HashFlags return list of hash algorithms passed as flags
+func HashFlags() []string {
+	flags := make([]string, 0)
+	if MD5Flag {
+		flags = append(flags, cryptoutil.MD5)
+	}
+	if SHA1Flag {
+		flags = append(flags, cryptoutil.SHA1)
+	}
+	if SHA256Flag {
+		flags = append(flags, cryptoutil.SHA256)
+	}
+	if SHA512Flag {
+		flags = append(flags, cryptoutil.SHA512)
+	}
+	return flags
+}
+
+// Files returns list of files passed as arguments
+func Files() []string {
+	return flag.Args()
+}
 
 // Validate validates whether passed cli flags and arguments are enough
 func Validate() {
@@ -39,12 +60,7 @@ func Validate() {
 		os.Exit(1)
 	}
 
-	if !MD5Flag && !SHA1Flag && !SHA256Flag && !SHA512Flag {
-		printHelp()
-		os.Exit(1)
-	}
-
-	if len(Files) == 0 {
+	if len(HashFlags()) == 0 || len(Files()) == 0 {
 		printHelp()
 		os.Exit(1)
 	}
@@ -77,5 +93,4 @@ func init() {
 	flag.BoolVar(&SHA256Flag, cryptoutil.SHA256, false, "calculate SHA256")
 	flag.BoolVar(&SHA512Flag, cryptoutil.SHA512, false, "calculate SHA512")
 	flag.Parse()
-	Files = flag.Args()
 }

@@ -11,22 +11,13 @@ import (
 
 func main() {
 	cli.Validate()
-	for i, f := range cli.Files {
+	for i, f := range cli.Files() {
 		if i > 0 {
 			log.Println("")
 		}
 		log.Println(f)
-		if cli.MD5Flag {
-			printChecksum(f, cryptoutil.MD5)
-		}
-		if cli.SHA1Flag {
-			printChecksum(f, cryptoutil.SHA1)
-		}
-		if cli.SHA256Flag {
-			printChecksum(f, cryptoutil.SHA256)
-		}
-		if cli.SHA512Flag {
-			printChecksum(f, cryptoutil.SHA512)
+		for _, h := range cli.HashFlags() {
+			printChecksum(f, h)
 		}
 	}
 }
