@@ -42,6 +42,15 @@ Compiling `hashify` is easy, simply run:
        md5 | 8ddd8be4b179a529afa5f2ffae4b9858
     sha256 | 03ba204e50d126e4674c005e04d82e84c21366780af1f43bd54a37816b6ab340
 
+Supported hash functions are:
+- CRC32
+- MD5
+- SHA1
+- SHA224
+- SHA256
+- SHA384
+- SHA512
+
 ## License
 
 `hashify` is licensed under MIT license. (see [LICENSE](./LICENSE))
