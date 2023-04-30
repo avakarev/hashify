@@ -1,0 +1,54 @@
+# Make sure to check the documentation at https://goreleaser.com
+project_name: hashify
+before:
+  hooks:
+    - go mod download
+builds:
+  - id: hashify
+    env:
+      - CGO_ENABLED=0
+      - BUILDMETA=github.com/avakarev/go-buildmeta
+    main: ./cmd
+    binary: hashify
+    flags:
+      - -trimpath
+    ldflags: "-s -w -X {{.Env.BUILDMETA}}.Commit={{.ShortCommit}} -X {{.Env.BUILDMETA}}.BuildTimeUTC={{.Date}} -X {{.Env.BUILDMETA}}.Ref={{.Version}}"
+    goos:
+      - linux
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+      - arm
+    goarm:
+      - 6
+      - 7
+
+archives:
+  - id: default
+    builds:
+      - hashify
+
+nfpms:
+  - builds:
+      - hashify
+    vendor: avakarev
+    homepage: "https://github.com/avakarev/hashify"
+    maintainer: "Andrii Vakarev"
+    description: "CLI utility to calculate file checksums"
+    license: MIT
+    formats:
+      - deb
+      - rpm
+    bindir: /usr/bin
+
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Tag }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'

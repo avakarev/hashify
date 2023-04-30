@@ -1,0 +1,10 @@
+github.com/avakarev/go-buildmeta v1.1.0 h1:kz22+CdP+D0FIpm/qY0omS783OOlbJDl3OiLQCpmX+A=
+github.com/avakarev/go-buildmeta v1.1.0/go.mod h1:NcQLIsdErcqj2GOPn/cnr/WKPmiqWnkZqn1vz/zEKwY=
+github.com/avakarev/go-testutil v1.2.0 h1:VJ8Bzx22UiKAeN7DCeBQyrigVUjGYL3UVnwVFacQHuY=
+github.com/avakarev/go-testutil v1.2.0/go.mod h1:UXYPAIE3gWNtMIQfTQmKFSt+84DtZqMHJqJ1swC5txo=
+github.com/avakarev/go-timeutil v1.0.0 h1:FA2idsrUtWqvwVHdqRbQ/Az4jGVPs11GuFONz83ULSQ=
+github.com/avakarev/go-timeutil v1.0.0/go.mod h1:odswxssnWLg2cPJ804nyAB09GbV7sPUYy/QDUlKgOVw=
+github.com/google/go-cmp v0.5.7 h1:81/ik6ipDQS2aGcBfIN5dHDB36BwrStyeAQquSYCV4o=
+github.com/google/go-cmp v0.5.7/go.mod h1:n+brtR0CgQNWTVd5ZUFpTBC8YFBDLK/h/bpaJ8/DtOE=
+golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543 h1:E7g+9GITq07hpfrRu66IVDexMakfv52eLZ2CXBWiKr4=
+golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=
